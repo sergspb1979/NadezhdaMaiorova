@@ -871,6 +871,85 @@ img {
 }
 
 /* ══════════════════════════════════════════
+   EMDR
+   ══════════════════════════════════════════ */
+.emdr {
+  padding: var(--space-2xl) 0;
+  background: var(--color-cream);
+}
+
+.emdr__intro {
+  max-width: 720px;
+  margin: var(--space-lg) auto;
+}
+
+.emdr__intro-row {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+  margin: var(--space-lg) auto;
+  max-width: 900px;
+}
+
+.emdr__intro-col {
+  flex: 1;
+}
+
+.emdr__intro-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  line-height: 1.7;
+  color: var(--color-dark);
+}
+
+.emdr__video-wrap {
+  width: 280px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(42, 33, 24, 0.1);
+}
+
+.emdr__video {
+  width: 100%;
+  display: block;
+}
+
+.emdr__features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+}
+
+.emdr__feature {
+  padding: var(--space-md);
+  background: var(--color-cream-deep);
+  border-radius: var(--radius-md);
+  transition: transform var(--transition-spring), box-shadow var(--transition-base);
+}
+
+.emdr__feature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(42, 33, 24, 0.08);
+}
+
+.emdr__feature-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--color-terracotta);
+  margin-bottom: 0.5rem;
+}
+
+.emdr__feature-desc {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--color-dark-soft);
+}
+
+/* ══════════════════════════════════════════
    MEDITATION
    ══════════════════════════════════════════ */
 .meditation {
@@ -1055,7 +1134,6 @@ img {
   flex-shrink: 0;
   align-self: stretch;
   position: relative;
-  aspect-ratio: 3 / 4;
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(42, 33, 24, 0.1);
@@ -1283,6 +1361,77 @@ img {
   font-size: 0.9rem;
   color: var(--color-muted);
   line-height: 1.6;
+}
+
+.education__sub {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, margin 0.3s ease;
+  margin-top: 0;
+}
+
+.education__item--group.is-open .education__sub {
+  max-height: 600px;
+  margin-top: var(--space-sm);
+}
+
+.education__sub-item {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--color-dark-soft);
+  padding: 0.3rem 0 0.3rem var(--space-sm);
+  border-left: 2px solid var(--color-light-muted);
+  margin-bottom: 0.25rem;
+}
+
+.education__sub-year {
+  color: var(--color-terracotta);
+  font-weight: 500;
+  margin-right: 0.3rem;
+}
+
+.education__group-toggle {
+  cursor: pointer;
+  user-select: none;
+}
+
+.education__toggle-icon {
+  display: inline-block;
+  font-size: 1.2em;
+  transition: transform 0.3s ease;
+  margin-left: 0.4rem;
+  color: var(--color-terracotta);
+}
+
+.education__item--group.is-open .education__toggle-icon {
+  transform: rotate(180deg);
+}
+
+.education__diploma-inline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: #fff;
+  border: 1px solid var(--color-light-muted);
+  border-radius: 3px;
+  cursor: pointer;
+  vertical-align: middle;
+  margin-left: 0.4rem;
+  box-shadow: 0 1px 4px rgba(42, 33, 24, 0.08);
+  transition: transform var(--transition-spring), box-shadow var(--transition-base);
+}
+
+.education__diploma-inline:hover {
+  transform: scale(1.15);
+  box-shadow: 0 3px 12px rgba(42, 33, 24, 0.15);
+}
+
+.education__diploma-inline-icon {
+  font-size: 0.75rem;
+  line-height: 1;
 }
 
 .education__diploma-img {
@@ -1719,8 +1868,19 @@ img {
   }
 
   .therapy__features,
-  .business__features {
+  .business__features,
+  .emdr__features {
     grid-template-columns: 1fr;
+  }
+
+  .emdr__intro-row {
+    flex-direction: column;
+  }
+
+  .emdr__video-wrap {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
   }
 
   .section__curve svg {

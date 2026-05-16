@@ -38,6 +38,7 @@
   <nav class="nav" id="nav">
     <a href="#about" class="nav__link">Обо мне</a>
     <a href="#therapy" class="nav__link">Психолог</a>
+    <a href="#emdr" class="nav__link">EMDR</a>
     <a href="#meditation" class="nav__link">Медитации</a>
     <a href="#writing" class="nav__link">Писатель</a>
     <a href="#business" class="nav__link">Бизнес</a>
@@ -66,6 +67,8 @@
       <h1 class="hero__name reveal"><span class="hero__pulse">Н</span>адежда Майорова</h1>
       <p class="hero__tagline reveal">
         <a href="#therapy" class="hero__tagline-item">Психолог</a>
+        <span class="hero__tagline-sep">·</span>
+        <a href="#emdr" class="hero__tagline-item">EMDR</a>
         <span class="hero__tagline-sep">·</span>
         <a href="#meditation" class="hero__tagline-item">Медитации</a>
         <span class="hero__tagline-sep">·</span>
@@ -180,6 +183,42 @@
           <div class="therapy__issues-visual">
             <img class="therapy__issues-img" id="therapyIssuesImg" alt="" aria-hidden="true">
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- EMDR                                    -->
+  <!-- ═══════════════════════════════════════ -->
+  <section class="emdr" id="emdr">
+    <div class="container">
+      <h2 class="section__title section__title--dark reveal">EMDR</h2>
+      <p class="section__subtitle section__subtitle--dark reveal">Eye Movement Desensitization and Reprocessing<br>Десенсибилизация и переработка движением глаз</p>
+
+      <div class="emdr__intro-row reveal">
+        <div class="emdr__intro-col">
+          <p class="emdr__intro-text">EMDR — метод терапии, доказавший свою эффективность при работе с травмой. Билатеральная стимуляция помогает мозгу переработать застрявшие воспоминания — так, чтобы они перестали вызывать болезненную реакцию.</p>
+        </div>
+        <div class="emdr__video-wrap">
+          <video class="emdr__video" autoplay loop muted playsinline>
+            <source src="img/emdr.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <div class="emdr__features">
+        <div class="emdr__feature reveal">
+          <h3 class="emdr__feature-title">Травма</h3>
+          <p class="emdr__feature-desc">EMDR изначально создан для работы с травматическими переживаниями — от единичных событий до комплексных травм</p>
+        </div>
+        <div class="emdr__feature reveal">
+          <h3 class="emdr__feature-title">Переработка</h3>
+          <p class="emdr__feature-desc">Движения глаз или другие билатеральные стимулы активируют естественные механизмы переработки информации в мозге</p>
+        </div>
+        <div class="emdr__feature reveal">
+          <h3 class="emdr__feature-title">Результат</h3>
+          <p class="emdr__feature-desc">Воспоминание остаётся, но теряет эмоциональный заряд — человек вспоминает о травме без боли</p>
         </div>
       </div>
     </div>
@@ -330,65 +369,137 @@
       <p class="section__subtitle section__subtitle--dark reveal">Дипломы и сертификаты</p>
 
       <div class="education__timeline">
-        <div class="education__item reveal">
-          <div class="education__dot"></div>
-          <div class="education__content">
-            <span class="education__year">2024</span>
-            <h3 class="education__title">Сертификат гештальт-терапии</h3>
-            <p class="education__desc">Программа профессиональной переподготовки по гештальт-терапии</p>
-          </div>
-        </div>
 
-        <div class="education__item reveal">
+        <!-- КПТ — раскрываемая группа -->
+        <div class="education__item education__item--group reveal">
           <div class="education__dot"></div>
           <div class="education__content">
             <span class="education__year">2022</span>
-            <h3 class="education__title">Инструктор медитаций</h3>
-            <p class="education__desc">Обучение методикам преподавания медитации и осознанности</p>
-          </div>
-        </div>
-
-        <div class="education__item reveal">
-          <div class="education__dot"></div>
-          <div class="education__content">
-            <span class="education__year">2015</span>
-            <h3 class="education__title">Диплом по психологии</h3>
-            <p class="education__desc">Высшее психологическое образование</p>
-          </div>
-          <img src="img/diploma-psychology.jpg" alt="Диплом по психологии" class="education__diploma-img">
-        </div>
-
-        <div class="education__item reveal">
-          <div class="education__dot"></div>
-          <div class="education__content">
-            <span class="education__year">2005</span>
-            <h3 class="education__title">Магистр</h3>
-            <p class="education__desc">Магистратура</p>
-          </div>
-          <div class="education__diploma" data-alt="Диплом магистра">
-            <div class="education__diploma-inner">
-              <div class="education__diploma-border"></div>
-              <span class="education__diploma-icon">📜</span>
-              <span class="education__diploma-label">Магистр</span>
-              <span class="education__diploma-year">2005</span>
+            <h3 class="education__title education__group-toggle">Когнитивно-поведенческая терапия <span class="education__toggle-icon">▾</span></h3>
+            <p class="education__desc">Ассоциация КПТ — 80 часов</p>
+            <div class="education__sub">
+              <div class="education__sub-item">
+                <span class="education__sub-year">апр 2022</span>
+                «Введение в терапию. Терапевтические отношения» — 20 ч
+              </div>
+              <div class="education__sub-item">
+                <span class="education__sub-year">май 2022</span>
+                «Концептуализация и реструктуризация дисфункциональных убеждений» — 20 ч
+              </div>
+              <div class="education__sub-item">
+                <span class="education__sub-year">июнь 2022</span>
+                «Когнитивная терапия» — 20 ч
+              </div>
+              <div class="education__sub-item">
+                <span class="education__sub-year">июль 2022</span>
+                «Основы РЭПТ (REBT)» — 20 ч
+              </div>
             </div>
           </div>
         </div>
 
+        <!-- Медитации — раскрываемая группа -->
+        <div class="education__item education__item--group reveal">
+          <div class="education__dot"></div>
+          <div class="education__content">
+            <span class="education__year">2020</span>
+            <h3 class="education__title education__group-toggle">Инструктор медитаций <span class="education__toggle-icon">▾</span></h3>
+            <p class="education__desc">Центр практик осознанности Mindspot — 220 часов</p>
+            <div class="education__sub">
+              <div class="education__sub-item">
+                Теория и практика mindfulness — 100 ч
+              </div>
+              <div class="education__sub-item">
+                Индивидуальная практика по техникам программы — 100 ч
+              </div>
+              <div class="education__sub-item">
+                Учебное преподавание — 20 ч
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Работа с насилием -->
         <div class="education__item reveal">
           <div class="education__dot"></div>
           <div class="education__content">
-            <span class="education__year">2003</span>
-            <h3 class="education__title">Бакалавр</h3>
-            <p class="education__desc">Бакалавриат</p>
+            <span class="education__year">2016</span>
+            <h3 class="education__title">Работа с насилием</h3>
+            <p class="education__desc">МИГИП — особенности психотерапевтической работы с насилием, 24 часа</p>
           </div>
-          <div class="education__diploma" data-alt="Диплом бакалавра">
-            <div class="education__diploma-inner">
-              <div class="education__diploma-border"></div>
-              <span class="education__diploma-icon">📜</span>
-              <span class="education__diploma-label">Бакалавр</span>
-              <span class="education__diploma-year">2003</span>
+        </div>
+
+        <!-- Гештальт — раскрываемая группа -->
+        <div class="education__item education__item--group reveal">
+          <div class="education__dot"></div>
+          <div class="education__content">
+            <span class="education__year">2014–2020</span>
+            <h3 class="education__title education__group-toggle">Гештальт-терапия <span class="education__toggle-icon">▾</span> <span class="education__diploma-inline" data-alt="Диплом гештальт-терапии"><span class="education__diploma-inline-icon">📜</span></span></h3>
+            <p class="education__desc">СПБИГ — более 800 часов</p>
+            <div class="education__sub">
+              <div class="education__sub-item">
+                <span class="education__sub-year">2014</span>
+                «Теория и методология гештальта» (1 ступень) — 200 ч
+              </div>
+              <div class="education__sub-item">
+                <span class="education__sub-year">2014</span>
+                «Организационное консультирование» — 33 ч
+              </div>
+              <div class="education__sub-item">
+                <span class="education__sub-year">2015</span>
+                «Эмоциональная зависимость в отношениях» (Петер Шультесс) — 24 ч
+              </div>
+              <div class="education__sub-item">
+                <span class="education__sub-year">2015</span>
+                «Современный гештальт: теория поля, феноменология, диалог» (2 ступень) — 200 ч
+              </div>
+              <div class="education__sub-item">
+                <span class="education__sub-year">2016</span>
+                Интервизорско-супервизорская группа — 33 ч
+              </div>
+              <div class="education__sub-item">
+                <span class="education__sub-year">2016</span>
+                «Гештальт-подход в работе с социальными и возрастными группами» (3 ступень) — 200 ч
+              </div>
+              <div class="education__sub-item">
+                <span class="education__sub-year">2016</span>
+                «Прикосновение к психосоматике. Гештальт-подход» — 24 ч
+              </div>
+              <div class="education__sub-item">
+                <span class="education__sub-year">2020</span>
+                «Психопатология и кризисное вмешательство в гештальт-подходе» — 144 ч
+              </div>
             </div>
+          </div>
+        </div>
+
+        <!-- IFS -->
+        <div class="education__item reveal">
+          <div class="education__dot"></div>
+          <div class="education__content">
+            <span class="education__year">2025</span>
+            <h3 class="education__title">IFS — Внутренние семейные системы</h3>
+            <p class="education__desc">IFS Russia — знакомство с подходом (теория 10 ч, практика 4 ч)</p>
+          </div>
+        </div>
+
+        <!-- Магистр -->
+        <div class="education__item reveal">
+          <div class="education__dot"></div>
+          <div class="education__content">
+            <span class="education__year">2003–2005</span>
+            <h3 class="education__title">Магистр <span class="education__diploma-inline" data-alt="Диплом магистра"><span class="education__diploma-inline-icon">📜</span></span></h3>
+            <p class="education__desc">СПбГУ, факультет международных отношений, магистратура</p>
+          </div>
+        </div>
+
+        <!-- Бакалавр -->
+        <div class="education__item reveal">
+          <div class="education__dot"></div>
+          <div class="education__content">
+            <span class="education__year">1999–2003</span>
+            <h3 class="education__title">Бакалавр <span class="education__diploma-inline" data-alt="Диплом бакалавра"><span class="education__diploma-inline-icon">📜</span></span></h3>
+            <p class="education__desc">СПбГУ, факультет международных отношений, бакалавриат</p>
           </div>
         </div>
       </div>

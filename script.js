@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const lightboxClose = document.getElementById('lightboxClose');
 
   if (lightbox && lightboxImg) {
-    document.querySelectorAll('.education__diploma-img, .education__diploma').forEach(el => {
+    document.querySelectorAll('.education__diploma-img, .education__diploma, .education__diploma-inline').forEach(el => {
       el.addEventListener('click', () => {
         const src = el.src || el.dataset.src || el.querySelector('img')?.src;
         if (src) {
@@ -427,4 +427,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 4000);
     }
   }
+
+  /* --- Education Group Toggle --- */
+  document.querySelectorAll('.education__group-toggle').forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const item = toggle.closest('.education__item--group');
+      if (item) item.classList.toggle('is-open');
+    });
+  });
 });
