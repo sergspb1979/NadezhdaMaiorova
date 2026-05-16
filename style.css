@@ -426,9 +426,9 @@ img {
 
 @keyframes heartbeat {
   0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0.5; }
-  14% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+  14% { transform: translate(-50%, -50%) scale(1.0); opacity: 1; }
   28% { transform: translate(-50%, -50%) scale(0.7); opacity: 0.7; }
-  42% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+  42% { transform: translate(-50%, -50%) scale(0.95); opacity: 1; }
   70% { transform: translate(-50%, -50%) scale(0.5); opacity: 0.5; }
   100% { transform: translate(-50%, -50%) scale(0.5); opacity: 0.5; }
 }

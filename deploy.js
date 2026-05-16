@@ -33,6 +33,15 @@ function execCmd(conn, cmd) {
   });
 }
 
+function sftpStat(sftp, remotePath) {
+  return new Promise((resolve) => {
+    sftp.stat(remotePath, (err, stats) => {
+      if (err) resolve(null);
+      else resolve(stats);
+    });
+  });
+}
+
 function sftpUpload(sftp, localPath, remotePath) {
   return new Promise((resolve, reject) => {
     const content = fs.readFileSync(localPath);
@@ -47,6 +56,7 @@ function sftpUpload(sftp, localPath, remotePath) {
 async function uploadDir(conn, sftp, localDir, remoteDir) {
   await execCmd(conn, `mkdir -p ${remoteDir}`);
   const entries = fs.readdirSync(localDir).filter(e => !skipFiles.includes(e));
+  let uploaded = 0, skipped = 0;
 
   for (const entry of entries) {
     const localEntryPath = path.join(localDir, entry);
@@ -54,11 +64,20 @@ async function uploadDir(conn, sftp, localDir, remoteDir) {
     const stat = fs.statSync(localEntryPath);
 
     if (stat.isDirectory()) {
-      await uploadDir(conn, sftp, localEntryPath, remoteEntryPath);
+      const sub = await uploadDir(conn, sftp, localEntryPath, remoteEntryPath);
+      uploaded += sub.uploaded;
+      skipped += sub.skipped;
     } else {
+      const remoteStat = await sftpStat(sftp, remoteEntryPath);
+      if (remoteStat && remoteStat.size === stat.size) {
+        skipped++;
+        continue;
+      }
       await sftpUpload(sftp, localEntryPath, remoteEntryPath);
+      uploaded++;
     }
   }
+  return { uploaded, skipped };
 }
 
 const conn = new Client();
@@ -72,6 +91,8 @@ conn.on('ready', async () => {
     conn.sftp(async (err, sftp) => {
       if (err) { console.error('SFTP error:', err); conn.end(); return; }
 
+      let totalUploaded = 0, totalSkipped = 0;
+
       for (let i = 0; i < files.length; i++) {
         const f = files[i];
         const localPath = path.resolve(__dirname, f.local);
@@ -84,15 +105,24 @@ conn.on('ready', async () => {
 
         const stat = fs.statSync(localPath);
         if (stat.isDirectory()) {
-          console.log(`[${i+1}/${files.length}] Uploading dir: ${f.local}/`);
-          await uploadDir(conn, sftp, localPath, remotePath);
+          console.log(`[${i+1}/${files.length}] Checking dir: ${f.local}/`);
+          const result = await uploadDir(conn, sftp, localPath, remotePath);
+          totalUploaded += result.uploaded;
+          totalSkipped += result.skipped;
         } else {
+          const remoteStat = await sftpStat(sftp, remotePath);
+          if (remoteStat && remoteStat.size === stat.size) {
+            console.log(`[${i+1}/${files.length}] ${f.local} — unchanged`);
+            totalSkipped++;
+            continue;
+          }
           console.log(`[${i+1}/${files.length}] Uploading: ${f.local}`);
           await sftpUpload(sftp, localPath, remotePath);
+          totalUploaded++;
         }
       }
 
-      console.log('All files uploaded!');
+      console.log(`Done! Uploaded: ${totalUploaded}, Skipped: ${totalSkipped}`);
       conn.end();
     });
   } catch (err) {
