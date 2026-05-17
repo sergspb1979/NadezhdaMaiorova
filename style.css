@@ -165,6 +165,24 @@ img {
   color: var(--color-cream);
 }
 
+/* --- Section Warm --- */
+.section--warm {
+  background: #EDE0D4;
+  color: var(--color-dark);
+}
+
+.section--warm .business__feature {
+  background: var(--color-cream);
+}
+
+.section--warm .recommend__card {
+  background: var(--color-cream);
+}
+
+.section--warm .business__carousel {
+  box-shadow: 0 4px 20px rgba(42, 33, 24, 0.12);
+}
+
 /* --- Section Curves --- */
 .section__curve {
   position: absolute;
