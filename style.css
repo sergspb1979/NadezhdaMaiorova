@@ -276,6 +276,10 @@ img {
   color: var(--color-cream);
 }
 
+.nav__end-mark {
+  display: none;
+}
+
 /* Burger */
 .nav__burger {
   display: none;
@@ -602,13 +606,13 @@ img {
   overflow: hidden;
 }
 
-.writing__hero-bg {
+.meditation__stars-bg {
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, #0d0b09 0%, #1a1510 40%, #0d0b09 100%);
 }
 
-.writing__stars {
+.meditation__stars {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -1831,7 +1835,8 @@ img {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: var(--space-lg);
+    gap: var(--space-xs);
+    padding: 3rem 1rem;
     background: var(--color-cream);
     transform: translateX(100%);
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1842,7 +1847,7 @@ img {
   }
 
   .nav__link {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .nav__burger {
