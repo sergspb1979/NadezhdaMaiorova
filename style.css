@@ -208,6 +208,10 @@ img {
 }
 
 .section--warm .recommend__section:first-child {
+  padding-top: var(--space-md);
+}
+
+.recommend.section--warm {
   padding-top: 6rem;
 }
 
