@@ -1811,6 +1811,9 @@ img {
 }
 
 @media (max-width: 640px) {
+  .business__carousel {
+    max-width: 200px;
+  }
   :root {
     --space-2xl: 6rem;
     --space-xl: 4rem;
