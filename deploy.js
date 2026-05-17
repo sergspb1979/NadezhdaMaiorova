@@ -124,6 +124,22 @@ conn.on('ready', async () => {
 
       console.log(`Done! Uploaded: ${totalUploaded}, Skipped: ${totalSkipped}`);
       conn.end();
+
+      // Push to GitHub
+      console.log('\nPushing to GitHub...');
+      const { execSync } = require('child_process');
+      try {
+        execSync('git add -A && git status --short', { stdio: 'inherit' });
+        const status = execSync('git status --porcelain').toString().trim();
+        if (status) {
+          const msg = `deploy: ${new Date().toLocaleString('ru-RU')}`;
+          execSync(`git commit -m "${msg}"`, { stdio: 'inherit' });
+        }
+        execSync('git push origin master', { stdio: 'inherit' });
+        console.log('GitHub push done!');
+      } catch (err) {
+        console.error('GitHub push error:', err.message);
+      }
     });
   } catch (err) {
     console.error('Error:', err);

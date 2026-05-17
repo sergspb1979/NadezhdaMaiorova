@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "ssh2": "^1.17.0"
+  },
+  "scripts": {
+    "start": "npx serve -l 3001",
+    "deploy": "node deploy.js"
+  }
+}
