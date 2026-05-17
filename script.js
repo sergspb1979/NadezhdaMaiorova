@@ -49,8 +49,11 @@ document.addEventListener('DOMContentLoaded', () => {
   /* --- Smooth Scroll for Nav Links --- */
   document.querySelectorAll('.nav__link, .hero__tagline-item').forEach(link => {
     link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href.includes('.html')) return; // External page links — normal navigation
+
       e.preventDefault();
-      const target = document.querySelector(link.getAttribute('href'));
+      const target = document.querySelector(href);
       if (target) {
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
