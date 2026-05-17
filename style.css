@@ -208,7 +208,7 @@ img {
 }
 
 .section--warm .recommend__section:first-child {
-  padding-top: var(--space-2xl);
+  padding-top: 6rem;
 }
 
 /* --- Section Curves --- */
