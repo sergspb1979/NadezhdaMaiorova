@@ -15,6 +15,7 @@ const skipFiles = ['britvology.mp4'];
 
 const files = [
   { local: 'index.html', remote: 'index.html' },
+  { local: 'another.html', remote: 'another.html' },
   { local: 'recommend.html', remote: 'recommend.html' },
   { local: 'style.css', remote: 'style.css' },
   { local: 'script.js', remote: 'script.js' },
