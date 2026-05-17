@@ -411,7 +411,7 @@ img {
   transform-origin: center bottom;
 }
 
-.hero__pulse::after {
+.hero__pulse.has-heart::after {
   content: '♥';
   position: absolute;
   top: 50%;
