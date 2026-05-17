@@ -183,6 +183,38 @@ img {
   box-shadow: 0 4px 20px rgba(42, 33, 24, 0.12);
 }
 
+.section__title--warm {
+  color: var(--color-dark);
+}
+
+.section__subtitle--warm {
+  color: var(--color-muted);
+}
+
+.recommend__section-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--color-terracotta);
+  margin-bottom: var(--space-sm);
+}
+
+.section--warm .recommend__section {
+  padding: var(--space-lg) 0;
+}
+
+.section--warm .recommend__grid {
+  margin-top: var(--space-sm);
+}
+
+.section--warm .recommend__section:first-child {
+  padding-top: 0;
+}
+
+.section--warm .recommend__section:last-child {
+  padding-bottom: 0;
+}
+
 /* --- Section Curves --- */
 .section__curve {
   position: absolute;
